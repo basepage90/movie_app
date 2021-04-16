@@ -1,5 +1,9 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v0.2)
+- Reuse Component
+    - prop in component
+
 ## Movie_App (tag : v0.1)
 - Understanding React operation
     - component in component
