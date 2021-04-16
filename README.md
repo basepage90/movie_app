@@ -1,7 +1,7 @@
 # Movie_App With ReactJS
 
 ## Movie_App (tag : v0.2)
-- Reuse Component
+- Reusable Component with JSX
     - prop in component
 
 ## Movie_App (tag : v0.1)
