@@ -1,4 +1,4 @@
-function Food({fav},{madein}) {
+function Food({fav,madein}) {
   return (
     <div className='food'>I Luv {fav} among {madein} food</div>
   );
