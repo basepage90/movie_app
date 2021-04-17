@@ -1,5 +1,9 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v0.5)
+- propTypes
+    - prop validator
+
 ## Movie_App (tag : v0.4)
 - using map
     - function in function
@@ -20,3 +24,4 @@
     npm create-react-app movie_app
 ```
 ---
+(This source is based on Nomad Coder's lecture. Thanks to nico)
