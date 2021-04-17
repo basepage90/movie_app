@@ -1,5 +1,9 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v0.4)
+- using map
+    - function in function
+
 ## Movie_App (tag : v0.3)
 - Dynamic Component Generation
 
