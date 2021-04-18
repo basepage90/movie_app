@@ -6,7 +6,7 @@
     - The Component Lifecycle
         - mount : constructor() - render() - componentDidMount()
         - update : render() - componentDidUpdate()
-        - unmound : 
+        - unmount : componentWillUnmount()
         <img src="./storage/The Component Lifecycle.PNG">
 
 - React 에서 function 은 ()로 닫을경우, 즉시 동작한다. 즉, onClick 에서 닫지않는다.
