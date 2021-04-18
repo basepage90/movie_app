@@ -1,5 +1,8 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v0.7)
+- state and componentDidMount 
+
 ## Movie_App (tag : v0.6)
 - class
     - extends React.Component
@@ -39,4 +42,4 @@
     npm create-react-app movie_app
 ```
 ---
-(This source is based on Nomad Coder's lecture. Thanks to nico)
+(This source is based on Nomad Coder's lecture. Thanks to Nico)
