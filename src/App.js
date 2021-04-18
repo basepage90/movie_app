@@ -1,41 +1,45 @@
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
+import React from "react";
 
-const foodList=[
-    {name:"Fried Chicken", madein:"Korea", rating : 5.0, imgurl:"https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.616.462.suffix/1568222255998.jpeg"},
-    {name:"Sushi", madein:"Japan", rating : 4.5, imgurl:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/1200px-Sushi_platter.jpg"},
-    {name:"Steak", madein:"U.S.A.", rating : 3.0, imgurl:"https://media1.s-nbcnews.com/i/newscms/2018_07/1318715/grilled-steak-today-tease-180216_89508b219dd455b4d43311782841f938.jpg"},
-    {name:"Pasta", madein:"Italy", rating : 4., imgurl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2SAZscmPwt6JdcaMb6Ek-RuDRzX0BTz3TZw&usqp=CAU"},
-]
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    console.log("construcotr")
+  }
+  componentDidMount(){
+    console.log("componentDidMount")
+  }
+  componentDidUpdate(){
+    console.log("componentDidUpdate")
+  }
+  
+  componentWillUnmount(){
+    console.log("componentWillUnmount")
+  }
 
-Food.propTypes = {
-  fav: PropTypes.string.isRequired,
-  nat: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  img: PropTypes.string.isRequired
-};
+  state = {
+    count: 0
+  }
+  
+  // good code : current
+  add = () => {
+    this.setState(current => ({count: current.count + 1 }) );
+  };
 
-function Food({fav,nat,img,rating}) {
-  return (
-    <div className='food'>
-      <h2>I Luv {fav} among {nat} food</h2>
-      <h4>rates : {rating}/5.0 </h4>
-      <img src={img} width="250px" alt={fav}/>
-    </div>
-  );
+  // bad code : sate 를 이런식으로 가져오는것은 외부 state 에 의존적이므로 좋은 코드가아니다.
+  minus = () => {
+    this.setState({count: this.state.count-1});
+  };
+  render(){
+    console.log("render")
+    return (
+      <div>
+        <h2> Number is : {this.state.count}</h2>
+        <button onClick={this.add}>add</button>
+        <button onClick={this.minus}>minus</button>
+      </div>
+    )
+  }
 }
-
-
-function App() {
-  return(
-  <div className="App">
-    <h1>I Love It !!! </h1>
-    {foodList.map(food=>(
-       <Food key={food.name} fav={food.name} nat={food.madein} img={food.imgurl} rating={food.rating} />
-    ))}
-  </div>
-  );
-}
-
-
 
 export default App;
