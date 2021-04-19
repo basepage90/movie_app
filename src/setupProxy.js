@@ -7,4 +7,11 @@ module.exports = function(app){
             pathRewrite:{ '^/api/':'/' }
         })
     )
+    app.use(
+        createProxyMiddleware( '/poster', {
+            target: 'https://movie.naver.com/movie',
+            changeOrigin: true,
+            pathRewrite:{ '^/poster/':'/' }
+        })
+    )
 };

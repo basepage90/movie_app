@@ -9,8 +9,7 @@ class App extends React.Component{
     movies : []
   };
 
-
-  getMovies = async () => {
+  getMovies = async()=> {
     const headers = {
       'Content-Type': 'plain/text',
       'X-Naver-Client-Id': '0izvEVBObzi_c80HfGoy',
@@ -20,7 +19,7 @@ class App extends React.Component{
       'query' : '무협',
     }
 
-    const {data: {items} }= await axios.get("/api/v1/search/movie.json",{params,headers});
+    const {data: {items} }=  await axios.get("/api/v1/search/movie.json",{params,headers});
 
     this.setState({movies:items, isLoading: false});
   };
@@ -34,9 +33,10 @@ class App extends React.Component{
     const {isLoading} = this.state;
     return (
       <div>
+        <section className="container">
         {isLoading ? (
-          <div class="lodaer">
-            <span class="lodaer__text">Loading...</span>
+          <div className="lodaer">
+            <span className="lodaer__text">Loading...</span>
           </div>
           ): this.state.movies.map(movie =>{
           return <Movie key={movie.title}
@@ -46,11 +46,14 @@ class App extends React.Component{
                         pubDate={movie.pubDate}
                         director={movie.director}
                         actor={movie.actor}
-                        userRating={movie.userRating} />
+                        userRating={movie.userRating}
+                        link={movie.link}
+                         />
         })}
+        </section>
       </div>
     )
-  }1
+  }
   
 }
 
