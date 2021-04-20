@@ -1,5 +1,9 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.0)
+- movie를 class 에서 function 으로 다시 교체 하였다.
+    - useState
+
 ## Movie_App (tag : v0.9)
 - movie를 function  에서 class 로 교체하였다.
 - cheerio : naver api 에서는 고퀄리티 포스터 주소를 제공해주지않으므로, 네이버영화 포스터를 스크랩하여 가져왔다.

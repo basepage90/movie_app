@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Movie from "./movie";
+import Movie from "./movie-func";
 import "./app.css";
 
 class App extends React.Component{
@@ -16,7 +16,7 @@ class App extends React.Component{
       'X-Naver-Client-Secret': '26YpCvQo_u',
     }
     const params = {
-      'query' : '무협',
+      'query' : '무림',
     }
 
     const {data: {items} }=  await axios.get("/api/v1/search/movie.json",{params,headers});

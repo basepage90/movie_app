@@ -28,7 +28,7 @@ class Movie extends React.Component{
       
     
     render (){
-        let {title,subtitle,pubDate,director,actor,userRating,link} = this.props;
+        let {title,subtitle,image,pubDate,director,actor,userRating,link} = this.props;
         const trans_title = title.replace(/<b>/gi,'').replace(/<\/b>/gi,'')
         const trans_director = director.replace('|',',').replace(/,\s*$/, "")
         const trans_actor =  actor.replace(/\|/gi,',').replace(/,\s*$/, "")
@@ -39,7 +39,7 @@ class Movie extends React.Component{
                     <div className="poster">
                         <a href={link}>
                         {isLoading ?
-                            ( <img alt={trans_title} title={trans_title} /> ) : 
+                            ( <img src={image} alt={trans_title} title={trans_title} /> ) : 
                             ( <img src={this.state.HQPoster} alt={trans_title} title={trans_title} /> )
                         }
                         </a>
