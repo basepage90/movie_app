@@ -1,5 +1,17 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.2)
+- useEffect 의존성 배열
+    - useEffect에서 sideEffect function을 async 로 만들면 오류 발생
+        - reason : sideEffect function은 함수만 반환할 수 있는데, async 함수는 Promise Obejct를 반환하기때문이다
+        - solution : side effect function 내부에서 async 함수를 사용하면된다
+    - useEffect 외부에서 생성한 함수 호출시, 의존성 배열 경고 발생
+        - 의존성배열에 해당 함수 추가
+        - 렌더링때마다 호출하지 않도록하기위하여, asyc함수를  useCallback 의  side effect 로 배치
+        - 허나 의존성 배열은 버그유발 및 관리 문제로 사용하지 않는 것이 좋다
+    - useEffect의 side effect에서 분기처리하여 실행시점 컨트롤
+        - async  함수 상위에 state 에 따른 분기처리 하였다
+
 ## Movie_App (tag : v1.1)
 - Hook
     - useState
@@ -10,7 +22,7 @@
     - useEffect
         - class 의 componentDidMount 와 유사
         - 배열형태로 state 값을 넣어주면, 해당 state 가 변경되었을때만  useEffect 한다
-        - 비어있는 배열로 ([])으로 명시하지않으면 무한루프에 빠질 수 있다.
+        - 의존성 배열 : 비어있는 배열로 ([])으로 명시하지않으면 무한루프에 빠질 수 있다.
 
 ## Movie_App (tag : v1.0)
 - movie를 class 에서 function 으로 다시 교체 하였다.

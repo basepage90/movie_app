@@ -25,6 +25,7 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
     const trans_director = director.replace('|',',').replace(/,\s*$/, "");
     const trans_actor =  actor.replace(/\|/gi,',').replace(/,\s*$/, "");
     
+    /* 의존성배열 대신 분기를 태우는 방식 */
     const GetHighQualityPoster = async () => {
         const regexp1 = /code=.+/gi;
         const code = link.match(regexp1)[0].substr(5);
@@ -36,11 +37,33 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
             isLoading: false,
             HQPoster: res
         });
-    }
+    };
     
     useEffect(() => {
-        GetHighQualityPoster();
-    }, []);
+        if(state.isLoading) {
+            GetHighQualityPoster();
+        }
+    });
+    
+    /* 의존성 배열 방식 */
+    // const GetHighQualityPoster = useCallback(async () => {
+    //     const regexp1 = /code=.+/gi;
+    //     const code = link.match(regexp1)[0].substr(5);
+    //     const getHighQualityPoster = "/poster/bi/mi/photoViewPopup.nhn?movieCode=" + code
+    //     const {data} = await axios.get(getHighQualityPoster);
+    //     const $ = cheerio.load(data);
+    //     const res = $('#targetImage').attr('src');
+    //     setState({
+    //         isLoading: false,
+    //         HQPoster: res
+    //     });
+    // }, [link]);
+    
+    // useEffect(() => {
+    //    GetHighQualityPoster();
+    // }, [GetHighQualityPoster]);
+
+    console.log("test");
 
     return (
         <div className="movie">
