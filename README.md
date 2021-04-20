@@ -1,5 +1,17 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.1)
+- Hook
+    - useState
+        - class 의 state + setState 와 유사
+        - state 들은 state 안에 json 객체로 선언해야, 불필요한 render 횟수를 줄일 수 있다.
+    - useReducer
+        - useState 보다 state 값을 좀더 구체적으로 변경하기위해, 일종의 콜백함수가 추가된 형태이다.
+    - useEffect
+        - class 의 componentDidMount 와 유사
+        - 배열형태로 state 값을 넣어주면, 해당 state 가 변경되었을때만  useEffect 한다
+        - 비어있는 배열로 ([])으로 명시하지않으면 무한루프에 빠질 수 있다.
+
 ## Movie_App (tag : v1.0)
 - movie를 class 에서 function 으로 다시 교체 하였다.
     - useState

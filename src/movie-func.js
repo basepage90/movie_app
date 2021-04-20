@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import axios from "axios";
 import cheerio from "cheerio";
 import PropTypes from "prop-types";
@@ -14,32 +14,41 @@ Movie.propTypes= {
     userRating : PropTypes.string.isRequired,
 }
 
+const initState = {
+    isLoading: true,
+    HQPoster: ""
+}
+
 function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
-    const [isLoading, setIsLoading] = useState(true);
-    const [HQPoster, setHQPoster] = useState("");
+    const [state, setState] = useState(initState);
     const trans_title = title.replace(/<b>/gi,'').replace(/<\/b>/gi,'');
     const trans_director = director.replace('|',',').replace(/,\s*$/, "");
     const trans_actor =  actor.replace(/\|/gi,',').replace(/,\s*$/, "");
-
+    
     const GetHighQualityPoster = async () => {
         const regexp1 = /code=.+/gi;
-        const code = link.match(regexp1)[0].substr(5)
+        const code = link.match(regexp1)[0].substr(5);
         const getHighQualityPoster = "/poster/bi/mi/photoViewPopup.nhn?movieCode=" + code
         const {data} = await axios.get(getHighQualityPoster);
-        const $ = cheerio.load(data)
-        setIsLoading(false);
-        setHQPoster($('#targetImage').attr('src'));
-    };
-
-    GetHighQualityPoster();
+        const $ = cheerio.load(data);
+        const res = $('#targetImage').attr('src');
+        setState({
+            isLoading: false,
+            HQPoster: res
+        });
+    }
+    
+    useEffect(() => {
+        GetHighQualityPoster();
+    }, []);
 
     return (
         <div className="movie">
             <div className="poster">
                 <a href={link}>
-                    {isLoading ?
+                    {state.isLoading  ?
                         ( <img src={image} alt={trans_title} title={trans_title} /> ) : 
-                        ( <img src={HQPoster} alt={trans_title} title={trans_title} /> )
+                        ( <img src={state.HQPoster} alt={trans_title} title={trans_title} /> )
                     }
                 </a>
             </div>
@@ -52,6 +61,5 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
         </div>
     )
 }
-
 
 export default Movie;
