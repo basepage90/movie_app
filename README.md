@@ -10,7 +10,7 @@
         - 렌더링때마다 호출하지 않도록하기위하여, asyc함수를  useCallback 의  side effect 로 배치
         - 허나 의존성 배열은 버그유발 및 관리 문제로 사용하지 않는 것이 좋다
     - useEffect의 side effect에서 분기처리하여 실행시점 컨트롤
-        - async  함수 상위에 state 에 따른 분기처리 하였다
+        - state 에 따른 분기처리를 해주었다
 
 ## Movie_App (tag : v1.1)
 - Hook
