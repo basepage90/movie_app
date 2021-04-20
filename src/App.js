@@ -17,6 +17,7 @@ class App extends React.Component{
     }
     const params = {
       'query' : '무림',
+      'display':'20'
     }
 
     const {data: {items} }=  await axios.get("/api/v1/search/movie.json",{params,headers});
@@ -30,28 +31,33 @@ class App extends React.Component{
   }
 
   render() {
-    const {isLoading} = this.state;
+    const {isLoading, movies} = this.state;
     return (
-      <div>
         <section className="container">
         {isLoading ? (
           <div className="lodaer">
             <span className="lodaer__text">Loading...</span>
           </div>
-          ): this.state.movies.map(movie =>{
-          return <Movie key={movie.title}
-                        title={movie.title}
-                        subtitle={movie.subtitle}
-                        image={movie.image}
-                        pubDate={movie.pubDate}
-                        director={movie.director}
-                        actor={movie.actor}
-                        userRating={movie.userRating}
-                        link={movie.link}
-                         />
-        })}
+          ): (
+            <div className="movies">
+              {movies.map(movie =>(
+                <Movie
+                  key={movie.title}
+                  title={movie.title}
+                  subtitle={movie.subtitle}
+                  image={movie.image}
+                  pubDate={movie.pubDate}
+                  director={movie.director}
+                  actor={movie.actor}
+                  userRating={movie.userRating}
+                  link={movie.link}
+                  />
+              ))}
+           </div>
+          )}
+
+
         </section>
-      </div>
     )
   }
   
