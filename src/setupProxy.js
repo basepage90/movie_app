@@ -4,14 +4,14 @@ module.exports = function(app){
         createProxyMiddleware( '/api', {
             target: 'https://openapi.naver.com',
             changeOrigin: true,
-            pathRewrite:{ '^/api/':'/' }
+            pathRewrite:{ '^/api':'' }
         })
     )
     app.use(
         createProxyMiddleware( '/poster', {
             target: 'https://movie.naver.com/movie',
             changeOrigin: true,
-            pathRewrite:{ '^/poster/':'/' }
+            pathRewrite:{ '^/poster':'' }
         })
     )
 };

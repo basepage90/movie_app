@@ -22,7 +22,8 @@ const initState = {
 function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
     const [state, setState] = useState(initState);
     const trans_title = title.replace(/<b>/gi,'').replace(/<\/b>/gi,'');
-    const trans_director = director.replace('|',',').replace(/,\s*$/, "");
+    const trans_subtitle = subtitle.replace(/<b>/gi,'').replace(/<\/b>/gi,'');
+    const trans_director = director.replace(/\|/gi,',').replace(/,\s*$/, "");
     const trans_actor =  actor.replace(/\|/gi,',').replace(/,\s*$/, "");
     const rating = {width:userRating*10+'%'};
     
@@ -64,8 +65,6 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
     //    GetHighQualityPoster();
     // }, [GetHighQualityPoster]);
 
-    console.log("test");
-
     return (
         <div className="movie">
                 <a href={link}>
@@ -76,7 +75,7 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
                 </a>
             <div className="movie__data">
                 <h3 className="movie__title">{trans_title}</h3>
-                <h5 className="movie__subtitle">{subtitle}</h5>
+                <h5 className="movie__subtitle">{trans_subtitle}</h5>
                 <ul className="movie__info">
                     <li>
                         {pubDate} | 감독 : {trans_director} | 출연 : {trans_actor}

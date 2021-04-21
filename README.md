@@ -1,5 +1,30 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.4)
+- npm i react-router-dom
+    - BrowserRouter 
+    - HashRouter
+    - Route
+        - exact={true} 이면, 중복 라우팅을 하지 않는다.
+- noip + Naver Cloud : free ddns + unbuntu server
+    - http://moviefinder.ddns.net:3000/
+
+- ~~gitgub pages~~
+    - ~~무료로 static 코드를 빌드 후 배포 해준다~~
+    - proxy 때문에 naver cloud 로 대체 하였다
+```
+npm i gh-pages
+package.json
+
+"scripts": {
+    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build"
+}
+
+ "homepage": "https://basepage90.github.io/movie_app/"
+```
+- npm i react-router-dom : navigation package
+
 ## Movie_App (tag : v1.3)
 - css
     - simple dynamic css
