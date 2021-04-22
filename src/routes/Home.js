@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import Movie from "../components/movie-func";
-import "./home.css";
+import Movie from "../components/movie";
+import "./Home.css";
 
 class Home extends React.Component{
   state = {

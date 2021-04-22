@@ -3,6 +3,7 @@ import axios from "axios";
 import cheerio from "cheerio";
 import PropTypes from "prop-types";
 import "./movie.css";
+import {Link} from "react-router-dom";
 
 Movie.propTypes= {
     title : PropTypes.string.isRequired,
@@ -16,7 +17,8 @@ Movie.propTypes= {
 
 const initState = {
     isLoading: true,
-    HQPoster: ""
+    HQPoster: "",
+    code:""
 }
 
 function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
@@ -37,7 +39,8 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
         const res = $('#targetImage').attr('src');
         setState({
             isLoading: false,
-            HQPoster: res
+            HQPoster: res,
+            code: code
         });
     };
     
@@ -67,12 +70,24 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
 
     return (
         <div className="movie">
-                <a href={link}>
+            <div className="link">
                     {state.isLoading  ?
                         ( <img src={image} alt={trans_title} title={trans_title} /> ) : 
-                        ( <img src={state.HQPoster} alt={trans_title} title={trans_title} /> )
+                        ( <Link to={{ pathname: `/movie/${state.code}`,
+                                       state: { trans_title,
+                                                trans_subtitle,
+                                                pubDate,
+                                                trans_director,
+                                                trans_actor,
+                                                userRating,
+                                                link,
+                                                HQPoster : state.HQPoster
+                                              }
+                                    }}>
+                            <img src={state.HQPoster} alt={trans_title} title={trans_title} />
+                         </Link> )
                     }
-                </a>
+            </div>
             <div className="movie__data">
                 <h3 className="movie__title">{trans_title}</h3>
                 <h5 className="movie__subtitle">{trans_subtitle}</h5>
@@ -89,8 +104,9 @@ function Movie({title,subtitle,image,pubDate,director,actor,userRating,link}){
                     &nbsp;({userRating})
                 </span>
             </div>
+            
         </div>
-    )
+    );
 }
 
 export default Movie;

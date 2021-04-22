@@ -1,5 +1,13 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.5)
+- Link
+    - import {Link} from "react-router-dom";
+    - Link는 redirect  없이 라우팅을 돕는다
+    - Link는 라우터안에 존재 해야 한다
+    - Navigation 컴포넌트에 활용
+    - location / history / match
+
 ## Movie_App (tag : v1.4)
 - npm i react-router-dom
     - BrowserRouter 
