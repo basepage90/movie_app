@@ -1,7 +1,7 @@
 # Movie_App With ReactJS
 
 ## Movie_App (tag : v1.5)
-- Link
+- Link : sharing props between routes
     - import {Link} from "react-router-dom";
     - Link는 redirect  없이 라우팅을 돕는다
     - Link는 라우터안에 존재 해야 한다
