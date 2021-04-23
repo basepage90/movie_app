@@ -1,5 +1,9 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.6)
+- add search bar
+    - constructor & state bind
+
 ## Movie_App (tag : v1.5)
 - Link : sharing props between routes
     - import {Link} from "react-router-dom";
