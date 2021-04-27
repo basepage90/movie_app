@@ -1,27 +1,16 @@
-import { createStore } from "redux";
+import { createAction, createReducer, configureStore } from "@reduxjs/toolkit";
 
-const UPDATE = "UPDATE";
-const DELETE = "DELETE";
+const initState = {text : "어벤져스"};
 
-const update = text => {
-  return {
-    type: UPDATE,
-    text
-  };
-};
+const update = createAction("UPDATE")
 
-const reducer = (state = {text:"어벤져스"}, action) => {
-  switch (action.type) {
-    case UPDATE:
-      return { text: action.text};
-    case DELETE:
-      return state.filter(toDo => toDo !== action.id);
-    default:
-      return state;
-  }
-};
 
-const store = createStore(reducer);
+//  possible mutate state or return state
+const reducer = createReducer(initState,{
+  [update]: (state,action) => ( {text: action.payload} )
+});
+
+const store = configureStore({reducer});
 
 export const actionCreators = {update};
 

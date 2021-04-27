@@ -9,9 +9,9 @@ import "./Navigation.css";
 
 function Navigation({update}){
     
-    const setSearchName = ( )=> {
+    const setSearchName = ()=> {
         const searchName = document.getElementById("searchName").value;
-        update(searchName);        
+        update(searchName);
     }
 
     const handleKeyPress = (e) =>{
@@ -33,14 +33,14 @@ function Navigation({update}){
 }
 
   
-const mapStateToPropsa = (state)=>{
+const mapStateToProps = (state)=>{
     return {state};
 }
 
-const mapDispatchToPropsa = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
    return {
         update: (text) => dispatch(actionCreators.update(text))
     };
 }
 
-export default connect(mapStateToPropsa,mapDispatchToPropsa)(Navigation);
+export default connect(mapStateToProps,mapDispatchToProps)(Navigation);

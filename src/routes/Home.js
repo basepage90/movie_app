@@ -14,9 +14,6 @@ class Home extends React.Component{
       movies : []
     };
   }
- 
-
-
   
   getMovies = async()=> {
     const headers = {
@@ -37,7 +34,6 @@ class Home extends React.Component{
   };
 
   test = store.subscribe(()=> { 
-    console.log("Subscribe! I am cctv!"); 
     const searchName = store.getState().text;
     this.setState({searchName:searchName}, ()=>{this.getMovies()});
     
