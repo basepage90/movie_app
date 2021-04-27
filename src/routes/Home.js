@@ -2,40 +2,29 @@ import React from "react";
 import axios from "axios";
 import Movie from "../components/movie";
 import "./Home.css";
+import store from "../store/store";
 
 class Home extends React.Component{
-  
   constructor(props) {
     super(props);
-
+    
     this.state = {
       isLoading: true,
-      searchName : "무림",
+      searchName : "어벤져스",
       movies : []
     };
-    
-    // 콜백에서 `this`가 작동하려면 바인딩 해주어야 한다.
-    this.setSearchName = this.setSearchName.bind(this);
   }
+ 
 
-  handleKeyPress = (e)=>{
-    if (e.key === "Enter") {
-      this.setSearchName();
-    }
-  }
+
   
-  setSearchName() {
-    const searchName = document.getElementById("searchName").value;
-    this.setState({searchName: searchName},()=>{this.getMovies();});
-  }
-
   getMovies = async()=> {
     const headers = {
       'Content-Type': 'plain/text',
       'X-Naver-Client-Id': '0izvEVBObzi_c80HfGoy',
       'X-Naver-Client-Secret': '26YpCvQo_u',
     }
-
+    
     const params = {
       'query' : this.state.searchName,
       'display':'20'
@@ -46,7 +35,13 @@ class Home extends React.Component{
     this.setState({movies:items, isLoading: false});
 
   };
- 
+
+  test = store.subscribe(()=> { 
+    console.log("Subscribe! I am cctv!"); 
+    const searchName = store.getState().text;
+    this.setState({searchName:searchName}, ()=>{this.getMovies()});
+    
+  });
 
 
   componentDidMount() {
@@ -57,10 +52,6 @@ class Home extends React.Component{
     const {isLoading, movies} = this.state;
     return (
       <section className="container">
-        <div class="searchBox">
-          <input id="searchName" type="text"  onKeyPress={this.handleKeyPress}/>
-          <button type="button" onClick={this.setSearchName}>Search</button>
-        </div>
         {isLoading ? (
           <div className="lodaer">
             <span className="lodaer__text">Loading...</span>
@@ -69,7 +60,7 @@ class Home extends React.Component{
             <div className="movies">
               {movies.map(movie =>(
                 <Movie
-                  key={movie.image}
+                  key={movie.title+movie.pubDate+movie.director}
                   title={movie.title}
                   subtitle={movie.subtitle}
                   image={movie.image}

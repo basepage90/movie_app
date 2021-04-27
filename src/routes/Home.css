@@ -29,14 +29,7 @@ body,
   font-weight: 300;
 }
 
-.searchBox{
-  height: 30px;
-  display: flex;
-  position: absolute;
-  top:5px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+
 
 .movies {
   display: flex;

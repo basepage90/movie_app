@@ -23,3 +23,23 @@
 .nav a:not(:last-child) {
   margin-bottom: 20px;
 }
+
+.searchBox{
+  
+  /* height: 30px;
+  display: flex;
+  position: absolute;
+  top:5px;
+  left: 50%;
+  transform: translateX(-50%); */
+}
+
+.searchBox input{
+  display: block;
+  width: 100px;
+}
+
+.searchBox button{
+  display: block;
+  width: 100px;
+}

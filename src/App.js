@@ -5,7 +5,6 @@ import About from "./routes/About";
 import Detail from "./components/Detail";
 import Navigation from "./components/Navigation";
 
-
 function App(){
   return (
     <BrowserRouter>

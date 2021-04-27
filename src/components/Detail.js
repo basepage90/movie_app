@@ -4,7 +4,7 @@ import "./Detail.css";
 function Detail (props){
   const { location, history} = props;
   const {state} = location;
-  
+
   useEffect(() => {
     if (location.state === undefined) {
         history.push("/");

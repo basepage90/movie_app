@@ -1,5 +1,8 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.7)
+- reudx 적용
+
 ## Movie_App (tag : v1.6)
 - add search bar
     - constructor & state bind

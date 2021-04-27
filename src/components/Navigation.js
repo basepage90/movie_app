@@ -1,14 +1,46 @@
 import React from "react";
+import { connect } from "react-redux";
 import {Link} from "react-router-dom";
+import { actionCreators } from "../store/store";
 import "./Navigation.css";
 
-function Navigation(){
+
+
+
+function Navigation({update}){
+    
+    const setSearchName = ( )=> {
+        const searchName = document.getElementById("searchName").value;
+        update(searchName);        
+    }
+
+    const handleKeyPress = (e) =>{
+        if (e.key === "Enter") {
+            setSearchName();
+        }
+    }
+    
     return (
         <div className="nav">
             <Link to="/">Home</Link>
             <Link to="/about">About</Link>
+            <div className="searchBox">
+                <input id="searchName" type="text" onKeyDown={handleKeyPress}/>
+                <button type="button" onClick={setSearchName}>Search</button>
+            </div>
         </div>
     );
 }
 
-export default Navigation;
+  
+const mapStateToPropsa = (state)=>{
+    return {state};
+}
+
+const mapDispatchToPropsa = (dispatch) => {
+   return {
+        update: (text) => dispatch(actionCreators.update(text))
+    };
+}
+
+export default connect(mapStateToPropsa,mapDispatchToPropsa)(Navigation);
