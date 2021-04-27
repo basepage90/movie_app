@@ -1,7 +1,6 @@
 # Movie_App With ReactJS
 
 ## Movie_App (tag : v1.8)
-
 - redux toolkit
     - npm i @reduxjs/toolkit
     - createReducer 를 사용하면, reudcer에서 mutate 가 가능해진다
