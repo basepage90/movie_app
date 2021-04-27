@@ -1,11 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import {Link} from "react-router-dom";
-import { actionCreators } from "../store/store";
+import { update } from "../store/store";
 import "./Navigation.css";
-
-
-
 
 function Navigation({update}){
     
@@ -39,7 +36,7 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch) => {
    return {
-        update: (text) => dispatch(actionCreators.update(text))
+        update: (text) => dispatch(update(text))
     };
 }
 

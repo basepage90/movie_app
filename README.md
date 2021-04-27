@@ -1,5 +1,9 @@
 # Movie_App With ReactJS
 
+## Movie_App (tag : v1.9)
+- redux toolkit
+    - { createSlice } has reducer & action
+
 ## Movie_App (tag : v1.8)
 - redux toolkit
     - npm i @reduxjs/toolkit
@@ -13,7 +17,6 @@
 - reudx 적용
     - store / reducer / state / action  / dispatch / subscribe
     - {connect}
-
 
 ## Movie_App (tag : v1.6)
 - add search bar

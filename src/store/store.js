@@ -1,17 +1,17 @@
-import { createAction, createReducer, configureStore } from "@reduxjs/toolkit";
+import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const initState = {text : "어벤져스"};
 
-const update = createAction("UPDATE")
-
-
-//  possible mutate state or return state
-const reducer = createReducer(initState,{
-  [update]: (state,action) => ( {text: action.payload} )
+const searchReducer = createSlice({
+  name: "searchReducer",
+  initialState: initState,
+  reducers: {
+    update : (state,action) => ( {text: action.payload} )
+  }
 });
 
-const store = configureStore({reducer});
+const store = configureStore({reducer:searchReducer.reducer});
 
-export const actionCreators = {update};
+export const {update} = searchReducer.actions;
 
 export default store;

@@ -33,10 +33,9 @@ class Home extends React.Component{
 
   };
 
-  test = store.subscribe(()=> { 
+  cctv = store.subscribe(()=> { 
     const searchName = store.getState().text;
     this.setState({searchName:searchName}, ()=>{this.getMovies()});
-    
   });
 
 
