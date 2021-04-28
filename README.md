@@ -140,7 +140,7 @@ package.json
 
 ## Movie_App (Initial Commit)
 ```
-    npm create-react-app movie_app
+    npx create-react-app movie_app
 ```
 ---
 (This source is based on Nomad Coder's lecture. Thanks to Nico)
