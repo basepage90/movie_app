@@ -2,7 +2,7 @@
 
 💡 리액트로 만든 영화 검색 앱입니다. Naver Movie API 와 redux 정도를 사용한 습작입니다.
 
-⚡ http://moviefinder.ddns.net
+⚡ ~http://moviefinder.ddns.net~
 
 ## Movie_App (tag : v1.9)
 - redux toolkit
